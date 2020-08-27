@@ -1,0 +1,27 @@
+{
+  "name": "acf-relationship-create-pro-master",
+  "version": "1.0.0",
+  "description": "=== Quick and Easy Post creation for ACF Relationship Fields PRO === Contributors: cyrilbatillat Donate link: http://bazalt.fr Tags:  acf, advanced custom fields, add-on, relationship, field, post creation, shortcut, workflow, admin, administration, wordpress Requires at least: 4.5 Tested up to: 4.9.7 Stable tag: trunk License: GPLv2 or later License URI: http://www.gnu.org/licenses/gpl-2.0.html",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel watch ./app/index.tsx",
+    "prod": "parcel build ./app/index.tsx"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@emotion/core": "^10.0.35",
+    "@types/react": "^16.9.48",
+    "@types/react-dom": "^16.9.8",
+    "emotion": "^10.0.27",
+    "immer": "^7.0.8",
+    "parcel": "^1.12.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "uid": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.2"
+  }
+}

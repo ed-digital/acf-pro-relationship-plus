@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "strict": false,
+    "lib": ["DOM"],
+    "jsx": "react",
+    "jsxFragmentFactory": "React.Fragment",
+    "esModuleInterop": true
+  },
+  "include": ["app/**/*"]
+}
