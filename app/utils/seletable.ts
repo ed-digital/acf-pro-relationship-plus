@@ -1,11 +1,11 @@
 import produce from 'immer'
 
-type Callback<T = any> = (arg?: T) => any
+type Callback<T = any, R = any> = (arg?: T) => R
 
 export type Selectable<T> = {
   subscribe(fn: Callback<T>): () => any
   state(): T
-  select(): any
+  select<V>(selector: Callback<T, V>, onChange: Callback<V>): () => any
   getSnapshot(): number
   set(fn: Callback<T>): any
   destroy(): any
@@ -45,8 +45,19 @@ export function selectable<T = any>(originalState: T): Selectable<T> {
     return currentState
   }
 
-  function select() {
-    throw Error('Not implemented')
+  function select<R, V extends Callback<T, R>>(
+    selector: V,
+    onChange: Callback<R>
+  ) {
+    let prev = selector(currentState)
+    onChange(prev)
+    return subscribe((s) => {
+      let val = selector(s)
+      if (val !== prev) {
+        prev = val
+        onChange(val)
+      }
+    })
   }
 
   function getSnapshot() {
